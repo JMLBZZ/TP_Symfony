@@ -1,0 +1,11 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Nouveau post{% endblock %}
+
+{% block body %}
+    <a href="{{ path('app_admin_home_index') }}" class="btn btn-dark btn-sm">Retour</a>
+    <h1 class="mt-3">Créer un nouveau post</h1>
+
+    {{ include('admin_home/_form.html.twig') }}
+
+{% endblock %}

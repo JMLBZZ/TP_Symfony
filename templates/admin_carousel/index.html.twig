@@ -1,0 +1,45 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Carousel index{% endblock %}
+
+{% block body %}
+    <h1>Carousel index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ImageName</th>
+                <th>Title</th>
+                <th>Text</th>
+                <th>Tag</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carousel in carousels %}
+            <tr>
+                <td>{{ carousel.id }}</td>
+                <td>
+                    <a href="{{ asset ('images/carousels/' ~ carousel.imageName) }}" data-lightbox="{{ carousel.imageName}}" data-title="{{ carousel.title}}">
+                        <img src="{{ asset ('images/carousels/' ~ carousel.imageName) }}" class="img-list" alt="{{ carousel.imageName}}">
+                    </a>
+                </td>
+                <td>{{ carousel.title }}</td>
+                <td>{{ carousel.text }}</td>
+                <td>{{ carousel.tag }}</td>
+                <td>
+                    <a href="{{ path('app_admin_carousel_show', {'id': carousel.id}) }}">show</a>
+                    <a href="{{ path('app_admin_carousel_edit', {'id': carousel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_carousel_new') }}">Create new</a>
+{% endblock %}

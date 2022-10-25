@@ -1,0 +1,27 @@
+vich_uploader:
+    db_driver: orm
+
+    metadata:
+        type: attribute
+
+    mappings:
+        carousel:
+            uri_prefix: /images/carousels
+            upload_destination: '%kernel.project_dir%/public/images/carousels'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        author:
+            uri_prefix: /images/author
+            upload_destination: '%kernel.project_dir%/public/images/author'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        book:
+            uri_prefix: /images/book
+            upload_destination: '%kernel.project_dir%/public/images/book'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        
+        bookpage:
+            uri_prefix: /images/book_page
+            upload_destination: '%kernel.project_dir%/public/images/book_page'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
